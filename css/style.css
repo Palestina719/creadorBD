@@ -1,0 +1,102 @@
+body{
+	background: #556B2F;
+	font-family: "Arial Narrow";
+}
+#Contenedor{
+	width: 90%;
+	box-shadow: rgb(150,150,150) 5px 5px 10px;
+	background: white;
+	margin-left: 55px;
+	margin-top: 50px;
+	float: left;
+}
+#Logotipo {
+	width: auto;
+	float: left;
+	margin-left: 590px;
+	margin-top: 50px;
+	margin-bottom: 20px;
+	height: 100px;
+	font-family: Papyrus	;
+	font-size: 65px;
+	text-align: center;
+	font-weight: bold;
+}
+#Logotipo p{
+	margin: 10px;
+}
+#Logotipo img{
+	width: 18%;
+	float: left;
+}
+#Datos{
+	float: left;
+	width: 70%;
+}
+#Datos table{
+	border: medium;
+}
+#AgregaryEliminar{
+	width: 30%;
+	float: left;
+}
+#Agregar{
+	width: 32%;
+	float: left;
+	margin-top: 20px;
+	text-align: center;
+}
+#Agregar img{
+	width: 100%;
+}
+#Eliminar{
+	width: 32%;
+	float: left;
+	margin-top: 20px;
+	text-align: center;
+}
+#Eliminar img{
+	width: 100%;
+}
+#Titulo{
+	float: left;
+	width: 80%;
+	margin-left: 100px;
+}
+#DatosExportar{
+	float: left;
+	width: 100%;
+}
+#NombreTabla{
+	float: left;
+	margin-left: 100px;
+	width: 28%;
+	text-align: center;
+}
+#ExportarComo{
+	float: left;
+	margin-left: 10px;
+	width: 28%;
+	text-align: center;
+}
+#NumeroFilas{
+	float: left;
+	margin-left: 10px;
+	width: 28%;
+	text-align: center;
+}
+#Generar{
+	float:left;
+	width: 100%;
+	margin-top: 20px;
+
+}
+#Generar button{
+	width: 10%;
+	height: 40px;
+	margin-left: 900px;
+	box-shadow: rgb(150,150,150) 5px 5px 10px;
+	margin-bottom: 20px;
+	font-size: 22px;
+}
+
