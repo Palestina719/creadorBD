@@ -99,4 +99,19 @@ body{
 	margin-bottom: 20px;
 	font-size: 22px;
 }
+#nombreColumna{
+	float: left;
+	width: 155px;
+	text-align: center;
+}
+#nombreDato{
+	float: left;
+	width: 130px;
+	text-align: center;
+}
+#nombreEjemplo{
+	float: left;
+	width: 155px;
+	text-align: center;
+}
 

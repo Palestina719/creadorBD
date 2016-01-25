@@ -6,10 +6,12 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        
+        
 	</head>
 	<body>
 		<script>
-			var t=5;
+			var t=4;
 		</script>
 		
 		
@@ -25,7 +27,7 @@
                 var n=table.rows.length;
                 
                 cell1.innerHTML="<td><input type='text' name='<?php echo "$pls";  ?>' placeholder='nombre de la columna'></td>";
-                cell2.innerHTML="<td><select><option>nombreMasculino</option> <option>nombreFemenino</option></select></td>";
+                cell2.innerHTML="<td><select><option>nombreMasculino</option> <option>nombreFemenino</option><option>apaterno</option><option>amaterno</option></select></td>";
                 cell3.innerHTML="<td><input type='text'></td>";
             	<?php $pls+1;?>
             	
@@ -42,7 +44,7 @@
             function borrar(){
             	var table=document.getElementById("tabla");{
             var p=table.rows.length;
-            	if(p>4){
+            	if(p>3){
             document.getElementById("tabla").deleteRow(0);
             
             //alert(p);
@@ -59,19 +61,19 @@
 				<img src="images/Logo.png" /><p>DB Creator</p>
 			</div> 
 			<div id="Datos">	
-				<form  method="post" name="" action="php/Script.php" >
+				<form  method="post" name="" action="query/Script.php" >
 					
 					<table id="tabla1" border="1" style="margin-top: 5px; margin-left: 150px;">
-						<input type="text" id="numero" name="nCol" value="4"/>
+						<input type="text" id="numero" name="nCol" value="3" style="display: none;"/>
 						<tr>
 								
-								<td>
+								<td id="nombreColumna">
 									Nombre Columna:
 								</td>
-								<td>
+								<td id="nombreDato">
 									Tipo de Dato:
 								</td>
-								<td>
+								<td id="nombreEjemplo">
 									Ejemplo:
 								</td>
 							</tr>
@@ -84,7 +86,9 @@
                     <td><select name="select1">
                             <option>nombreMasculino</option>
                             <option>nombreFemenino</option>
-                            <option>estados</option>    
+                            <option>estados</option>
+                            <option>apaterno</option> 
+                            <option>amaterno</option>    
                         </select>
                     </td>
                     <td><input type="text" /></td>                    
@@ -94,29 +98,23 @@
                     <td><select name="select2">
                             <option>nombremasculino</option>
                             <option>nombreFemenino</option>
-                            <option>estados</option>   
+                            <option>estados</option>
+                            <option>apaterno</option>
+                            <option>amaterno</option>   
                         </select>
                     </td>
                     <td><input type="text" /></td>                    
                 </tr>
+               
                 <tr>
                 	
                     <td><input type="text" name="3" placeholder="nombre de la columna" required></td>
                     <td><select name="select3">
                            <option>nombreMasculino</option>
                             <option>nombreFemenino</option>
-                            <option>estados</option>    
-                        </select>
-                    </td>
-                    <td><input type="text" /></td>                    
-                </tr>
-                <tr>
-                	
-                    <td><input type="text" name="4" placeholder="nombre de la columna" required></td>
-                    <td><select name="select4">
-                           <option>nombreMasculino</option>
-                            <option>nombreFemenino</option>
-                            <option>estados</option>     
+                            <option>estados</option>
+                            <option>apaterno</option>
+                            <option>amaterno</option>     
                         </select>
                     </td>
                     <td><input type="text" /></td>                    
