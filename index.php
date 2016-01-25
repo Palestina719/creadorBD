@@ -1,3 +1,4 @@
+<?php  $pls=5; ?>
 <!DOCTYPE >
 <html>
 	<head>
@@ -20,26 +21,36 @@
                 var cell1=row.insertCell(0);
                 var cell2=row.insertCell(1);
                 var cell3=row.insertCell(2);
-                var cell4=row.insertCell(3);
+                
                 var n=table.rows.length;
                 
-                cell1.innerHTML="<td><input type='text' value='' ></td>";
-                cell2.innerHTML="<td><input type='text' name='<?php   ?>'></td>";
-                cell3.innerHTML="<td><select><option>Seleccionar</option></select></td>";
-                cell4.innerHTML="<td><input type='text'></td>";
+                cell1.innerHTML="<td><input type='text' name='<?php echo "$pls";  ?>' placeholder='nombre de la columna'></td>";
+                cell2.innerHTML="<td><select><option>nombreMasculino</option> <option>nombreFemenino</option></select></td>";
+                cell3.innerHTML="<td><input type='text'></td>";
+            	<?php $pls+1;?>
             	
             	var n=table.rows.length;
             	var z=document.getElementById("numero");
             	z.setAttribute("value",n);
-            alert(n);
+            //alert(n);
             //variable para ver numero de filas
-            alert(t);   
+            //alert(t);   
             t++;
             }
             
             }
             function borrar(){
-            document.getElementById("table").deleteRow(0);
+            	var table=document.getElementById("tabla");{
+            var p=table.rows.length;
+            	if(p>4){
+            document.getElementById("tabla").deleteRow(0);
+            
+            //alert(p);
+            var y=document.getElementById("numero");;
+            var m=p-1;
+            y.setAttribute("value",m);
+            }
+            }
             }
         </script>
         
@@ -53,9 +64,7 @@
 					<table id="tabla1" border="1" style="margin-top: 5px; margin-left: 150px;">
 						<input type="text" id="numero" name="nCol" value="4"/>
 						<tr>
-								<td>
-									Orden:
-								</td>
+								
 								<td>
 									Nombre Columna:
 								</td>
@@ -70,10 +79,8 @@
 						<table id="tabla" border="1" style="margin-top: 5px; margin-left: 150px;">
 							
                 <tr>
-                	<td>
-                		<input type="text" value="1" name="col1"/>
-                	</td>
-                    <td><input type="text" name="1" placeholder="nombre de la columna"></td>
+                	
+                    <td><input type="text" name="1" placeholder="nombre de la columna" required></td>
                     <td><select name="select1">
                             <option>nombreMasculino</option>
                             <option>nombreFemenino</option>
@@ -83,12 +90,9 @@
                     <td><input type="text" /></td>                    
                 </tr>
                 <tr>
-                	<td>
-                		<input type="text" value="2" name="col1"/>
-                	</td>
-                    <td><input type="text" name="2" placeholder="nombre de la columna"></td>
+                    <td><input type="text" name="2" placeholder="nombre de la columna" required></td>
                     <td><select name="select2">
-                            <option>nombreMasculino</option>
+                            <option>nombremasculino</option>
                             <option>nombreFemenino</option>
                             <option>estados</option>   
                         </select>
@@ -96,10 +100,8 @@
                     <td><input type="text" /></td>                    
                 </tr>
                 <tr>
-                	<td>
-                		<input type="text" value="3" name="col1"/>
-                	</td>
-                    <td><input type="text" name="3" placeholder="nombre de la columna"></td>
+                	
+                    <td><input type="text" name="3" placeholder="nombre de la columna" required></td>
                     <td><select name="select3">
                            <option>nombreMasculino</option>
                             <option>nombreFemenino</option>
@@ -109,10 +111,8 @@
                     <td><input type="text" /></td>                    
                 </tr>
                 <tr>
-                	<td>
-                		<input type="text" value="4" name="col1"/>
-                	</td>
-                    <td><input type="text" name="4" placeholder="nombre de la columna"></td>
+                	
+                    <td><input type="text" name="4" placeholder="nombre de la columna" required></td>
                     <td><select name="select4">
                            <option>nombreMasculino</option>
                             <option>nombreFemenino</option>
@@ -129,7 +129,7 @@
 						<a onclick="agregar()"><img src="images/+.svg" />Agregar </a>
 					</div>
 					<div id="Eliminar">
-						<a onclick="#"><img src="images/-.png" />Eliminar</a>
+						<a onclick="borrar()"><img src="images/-.png" />Eliminar</a>
 					</div>
 					</div>
 			<div id="Exportar">
@@ -138,19 +138,20 @@
 				</div>
 				<div id="DatosExportar">
 						<div id="NombreTabla">
-								Nombre de la Base de Datos: <input type="text" name="nombre" id="CampoTabla"/>
+								Nombre de la Base de Datos: <input type="text" name="nombre" id="CampoTabla" required/>
 						</div>
+						<!-- <div><input type="button" value="Añadir" /><input name="fias" /></div> -->
 						<div id="ExportarComo">
 							Exportar como:
-							<select>
-								<option>Selecciona una opcion..</option>
-								<option>SQL</option>
-								<option>Excel</option>
+							<select name="tipo">
+								
+								<option>sql</option>
+								<option>xls</option>
 							</select>
 						</div>
 						<div id="NumeroFilas">
 							Numero de filas 
-							<input type="number" name="filas" />
+							<input type="number" name="filas" required/>
 						</div>
 						
 						<div id="Generar">
