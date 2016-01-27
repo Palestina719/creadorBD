@@ -31,7 +31,8 @@ body{
 }
 #Datos{
 	float: left;
-	width: 70%;
+	width: 65%;
+	
 }
 #Datos table{
 	border: medium;
@@ -39,7 +40,8 @@ body{
 #AgregaryEliminar{
 	width: 30%;
 	float: left;
-}
+	
+	}
 #Agregar{
 	width: 32%;
 	float: left;
@@ -101,17 +103,23 @@ body{
 }
 #nombreColumna{
 	float: left;
-	width: 155px;
+	width: 200px;
 	text-align: center;
 }
 #nombreDato{
 	float: left;
-	width: 130px;
+	width: 200px;
 	text-align: center;
 }
 #nombreEjemplo{
 	float: left;
-	width: 155px;
+	width: 290px;
+	text-align: center;
+}
+#tituloColumna{
+	width: 200px;
+	height: 30px;
+	font-size:18px;
 	text-align: center;
 }
 

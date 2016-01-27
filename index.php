@@ -10,52 +10,46 @@
         
 	</head>
 	<body>
-		<script>
-			var t=4;
-		</script>
-		
-		
 		 <script>
             function agregar(){
-            
-            var table=document.getElementById("tabla");    {	
-            var row=table.insertRow(0);
+            	var table=document.getElementById("tabla");    {	
+            	var row=table.insertRow(0);
                 var cell1=row.insertCell(0);
                 var cell2=row.insertCell(1);
                 var cell3=row.insertCell(2);
                 
-                var n=table.rows.length;
+                <?php   
+                	$conex=mysql_connect('localhost','root','');
+					$db=mysql_select_db('test2m',$conex)or die('no existe la base de datos.');
+					$consult=mysql_query("show tables");               	
+                	
+                	?>
                 
-                cell1.innerHTML="<td><input type='text' name='<?php echo "$pls";  ?>' placeholder='nombre de la columna'></td>";
-                cell2.innerHTML="<td><select><option>nombreMasculino</option> <option>nombreFemenino</option><option>apaterno</option><option>amaterno</option></select></td>";
-                cell3.innerHTML="<td><input type='text'></td>";
-            	<?php $pls+1;?>
-            	
-            	var n=table.rows.length;
+                var n=table.rows.length;
+                var select=90+n;
+                cell1.innerHTML="<td><input type='text' value='"+n+"' id='tituloColumna' required></td>";
+                cell2.innerHTML="<td><input type='text' name='"+n+"' placeholder='nombre de la columna' id='tituloColumna' required></td>";
+                cell3.innerHTML="<td><select id='tituloColumna' name="+select+"><?php  
+    						while($registr=mysql_fetch_row($consult)){
+								echo "<option value='".$registr[0]."'>".$registr[0]."</option>";
+							}
+						?>   </select></td>";            	
             	var z=document.getElementById("numero");
             	z.setAttribute("value",n);
-            //alert(n);
-            //variable para ver numero de filas
-            //alert(t);   
-            t++;
-            }
-            
+            	}
             }
             function borrar(){
             	var table=document.getElementById("tabla");{
-            var p=table.rows.length;
-            	if(p>3){
-            document.getElementById("tabla").deleteRow(0);
-            
-            //alert(p);
-            var y=document.getElementById("numero");;
-            var m=p-1;
-            y.setAttribute("value",m);
-            }
-            }
+            	var p=table.rows.length;
+            		if(p>3){
+            			document.getElementById("tabla").deleteRow(0);
+		            	var y=document.getElementById("numero");;
+            			var m=p-1;
+            			y.setAttribute("value",m);
+            		}
+            	}
             }
         </script>
-        
 		<div id="Contenedor">
 			<div id="Logotipo">
 				<img src="images/Logo.png" /><p>DB Creator</p>
@@ -66,60 +60,71 @@
 					<table id="tabla1" border="1" style="margin-top: 5px; margin-left: 150px;">
 						<input type="text" id="numero" name="nCol" value="3" style="display: none;"/>
 						<tr>
-								
-								<td id="nombreColumna">
-									Nombre Columna:
+							<td id="nombreColumna"  >
+									<input type="text" value="Numerador" id="tituloColumna" />
+								</td>
+								<td id="nombreColumna"  >
+									<input type="text" value="Titulo de la Columna" id="tituloColumna" />
 								</td>
 								<td id="nombreDato">
-									Tipo de Dato:
+									<input type="text" value="Tipo de dato" id="tituloColumna" />
 								</td>
-								<td id="nombreEjemplo">
-									Ejemplo:
-								</td>
+								
 							</tr>
 					</table>
 						<table id="tabla" border="1" style="margin-top: 5px; margin-left: 150px;">
-							
-                <tr>
+                <?php   
+                	$conex=mysql_connect('localhost','root','');
+					$db=mysql_select_db('test2m',$conex)or die('no existe la base de datos.');
+					$consult=mysql_query("show tables");               	
                 	
-                    <td><input type="text" name="1" placeholder="nombre de la columna" required></td>
-                    <td><select name="select1">
-                            <option>nombreMasculino</option>
-                            <option>nombreFemenino</option>
-                            <option>estados</option>
-                            <option>apaterno</option> 
-                            <option>amaterno</option>    
+                	?>
+                <tr>
+                	<td><input type="text" name="0" value="3" required id="tituloColumna"></td>
+                    <td><input type="text" name="1" placeholder="nombre de la columna" required id="tituloColumna"></td>
+                    <td><select name="select1" id="tituloColumna">
+                        <?php  
+    						while($registr=mysql_fetch_row($consult)){
+								echo "<option value='".$registr[0]."'>".$registr[0]."</option>";
+							}
+						?>    
                         </select>
                     </td>
-                    <td><input type="text" /></td>                    
                 </tr>
                 <tr>
-                    <td><input type="text" name="2" placeholder="nombre de la columna" required></td>
-                    <td><select name="select2">
-                            <option>nombremasculino</option>
-                            <option>nombreFemenino</option>
-                            <option>estados</option>
-                            <option>apaterno</option>
-                            <option>amaterno</option>   
+                	<?php   
+                	$conex=mysql_connect('localhost','root','');
+					$db=mysql_select_db('test2m',$conex)or die('no existe la base de datos.');
+					$consult=mysql_query("show tables");               	
+                	?>
+                	<td><input type="text" name="0" value="2" required id="tituloColumna"></td>
+                    <td><input type="text" name="2" placeholder="nombre de la columna" required id="tituloColumna"></td>
+                    <td><select name="select2" id="tituloColumna">
+                            <?php  
+    						while($registr=mysql_fetch_row($consult)){
+								echo "<option value='".$registr[0]."'>".$registr[0]."</option>";
+							}
+						?>   
                         </select>
                     </td>
-                    <td><input type="text" /></td>                    
                 </tr>
-               
                 <tr>
-                	
-                    <td><input type="text" name="3" placeholder="nombre de la columna" required></td>
-                    <td><select name="select3">
-                           <option>nombreMasculino</option>
-                            <option>nombreFemenino</option>
-                            <option>estados</option>
-                            <option>apaterno</option>
-                            <option>amaterno</option>     
+                	<?php   
+                	$conex=mysql_connect('localhost','root','');
+					$db=mysql_select_db('test2m',$conex)or die('no existe la base de datos.');
+					$consult=mysql_query("show tables");               	
+                	?>
+                	<td><input type="text" name="0" value="1" required id="tituloColumna"></td>
+                    <td><input type="text" name="3" placeholder="nombre de la columna" required id="tituloColumna"></td>
+                    <td><select name="select3" id="tituloColumna">
+                           <?php  
+    						while($registr=mysql_fetch_row($consult)){
+								echo "<option value='".$registr[0]."'>".$registr[0]."</option>";
+							}
+						?>    
                         </select>
                     </td>
-                    <td><input type="text" /></td>                    
                 </tr>
-                
             </table>
 			</div>
 			<div id="AgregaryEliminar">
@@ -137,12 +142,11 @@
 				<div id="DatosExportar">
 						<div id="NombreTabla">
 								Nombre de la Base de Datos: <input type="text" name="nombre" id="CampoTabla" required/>
+								Nombre de la tabla: <input type="text" name="nombret" id="CampoTabla" required/>
 						</div>
-						<!-- <div><input type="button" value="Añadir" /><input name="fias" /></div> -->
 						<div id="ExportarComo">
 							Exportar como:
 							<select name="tipo">
-								
 								<option>sql</option>
 								<option>xls</option>
 							</select>
@@ -151,13 +155,11 @@
 							Numero de filas 
 							<input type="number" name="filas" required/>
 						</div>
-						
 						<div id="Generar">
 					<button type="submit" class="positive" name="save"> Generar </button>
 				</div>
 					</form>
 				</div>
-				
 			</div>
 		</div>
 	</body>
